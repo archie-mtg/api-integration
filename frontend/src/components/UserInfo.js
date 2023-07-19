@@ -54,12 +54,11 @@ function UserInfo(props) {
   } else if (!user) {
     // loading user (first attempt to fetch user will fail if
     // no access token/ in-client add)
-    return <p className="p-loading">Loading Zoom User . . .</p>;
+    return <p className="p-loading">Loading User and Survey...</p>;
   }
 
   return (
     <div >
-      <pre className="pre-userinfo">{JSON.stringify(user, null, 2)}</pre>
     </div>
   );
 }

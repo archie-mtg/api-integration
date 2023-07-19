@@ -3,7 +3,7 @@ import { useLocation, useHistory } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
 import { apis } from "./apis";
 import { Authorization } from "./components/Authorization";
-import ApiScrollview from "./components/ApiScrollview";
+import Survey from "./components/Survey";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -200,8 +200,7 @@ function App() {
           "Configuring Zoom JavaScript SDK..."
         }
       </p>
-
-      <ApiScrollview />
+      <Survey />
       <Authorization
         handleError={setError}
         handleUserContextStatus={setUserContextStatus}

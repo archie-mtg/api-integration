@@ -1,11 +1,6 @@
 /* globals zoomSdk */
 import React, { useEffect, useState } from "react";
-import { Route, Redirect, useLocation } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import Auth0User from "./Auth0User";
-import Header from "./Header";
-import IFrame from "./IFrame";
-import Image from "./Image";
 import UserInfo from "./UserInfo";
 
 export const Authorization = (props) => {
@@ -16,7 +11,6 @@ export const Authorization = (props) => {
     user,
     userContextStatus,
   } = props;
-  const location = useLocation();
   const [userAuthorized, setUserAuthorized] = useState(null);
   const [showInClientOAuthPrompt, setShowInClientOAuthPrompt] = useState(false);
   const [inGuestMode, setInGuestMode] = useState(false);
@@ -137,8 +131,6 @@ export const Authorization = (props) => {
 
   return (
     <>
-      <p>You are on this route: {location.pathname}</p>
-
       {!inGuestMode && <Button
         variant="primary"
         onClick={inGuestMode ? promptAuthorize : authorize}
@@ -147,14 +139,6 @@ export const Authorization = (props) => {
       </Button>}
 
       <div>
-        <Header
-          navLinks={{ userInfo: "User Info", iframe: "IFrame", image: "Image" }}
-        />
-        <Route path="" exact>
-          <Redirect to="/userinfo" />
-        </Route>
-        <Route path="/userinfo">
-
           <UserInfo
             user={user}
             onClick={inGuestMode ? promptAuthorize : authorize}
@@ -162,16 +146,7 @@ export const Authorization = (props) => {
             userContextStatus={userContextStatus}
             showInClientOAuthPrompt={showInClientOAuthPrompt}
           />
-        </Route>
-        <Route path="/image">
-          <Image />
-        </Route>
-        <Route path="/iframe">
-          <IFrame />
-        </Route>
       </div>
-      <Header navLinks={{ auth0Data: "Auth0 User Data" }} />
-      <Auth0User user={user} />
     </>
   );
 };
