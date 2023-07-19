@@ -192,22 +192,30 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello{user ? ` ${user.first_name} ${user.last_name}` : " Zoom Apps user"}!</h1>
-      <p>{`User Context Status: ${userContextStatus}`}</p>
-      <p>
-        {runningContext ?
-          `Running Context: ${runningContext}` :
-          "Configuring Zoom JavaScript SDK..."
-        }
-      </p>
+      <div className="logo">
+        <img src={require('./images/mtg-logo.png')} alt="MedTrans Go Logo" />
+      </div>
+      <div className="spacing"></div>
+
+      <div className="header">
+        <h1>Hello{user ? ` ${user.first_name} ${user.last_name}` : " Zoom Apps user"}!</h1>
+        <p>{`User Context Status: ${userContextStatus}`}</p>
+        <p>
+          {runningContext ?
+            `Running Context: ${runningContext}` :
+            "Configuring Zoom JavaScript SDK..."
+          }
+        </p>
+        <Authorization
+          handleError={setError}
+          handleUserContextStatus={setUserContextStatus}
+          handleUser={setUser}
+          user={user}
+          userContextStatus={userContextStatus}
+        />
+      </div>
+    
       <Survey />
-      <Authorization
-        handleError={setError}
-        handleUserContextStatus={setUserContextStatus}
-        handleUser={setUser}
-        user={user}
-        userContextStatus={userContextStatus}
-      />
 
     </div>
   );

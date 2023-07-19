@@ -1,0 +1,34 @@
+.p-loading {
+    height: 300px
+}
+
+.pre-userinfo {
+    height: 300px;
+}
+
+.spacing {
+    margin: 2.5rem;
+}
+
+.mini-spacing {
+    margin: 1rem;
+}
+
+.notes {
+    width: 100%;
+    height: 300px;
+}
+
+.logo {
+    text-align: center;
+    background-color: #12439B;
+}
+
+.header {
+    text-align: center;
+}
+
+.optional h6 {
+    margin-top: 10px;
+    margin-bottom: 2px;
+}

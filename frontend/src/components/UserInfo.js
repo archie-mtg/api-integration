@@ -1,5 +1,5 @@
 import Button from "react-bootstrap/Button";
-import "./UserInfo.css"
+import "./style.css";
 function UserInfo(props) {
   const {
     user,
@@ -58,7 +58,7 @@ function UserInfo(props) {
   }
 
   return (
-    <div >
+    <div>
     </div>
   );
 }
